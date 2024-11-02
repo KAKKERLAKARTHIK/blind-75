@@ -34,3 +34,38 @@ var containsDuplicate = function(nums =[]) {
     return false
 };
 console.log(containsDuplicate(prices))
+function maxSubArray(nums) {
+    debugger
+    let maxSum = nums[0];
+    let currentSum = nums[0];
+    
+    // Track start and end indices of the maximum subarray
+    let maxStart = 0;    // Start index of the maximum sum subarray
+    let maxEnd = 0;      // End index of the maximum sum subarray
+    let currentStart = 0; // Temporary start index of the current subarray
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > currentSum + nums[i]) {
+            // Start a new subarray at the current element
+            currentSum = nums[i];
+            currentStart = i; // Update the start index of the current subarray
+        } else {
+            // Extend the current subarray
+            currentSum += nums[i];
+        }
+
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+            maxStart = currentStart; // Update start index of max subarray
+            maxEnd = i;               // Update end index of max subarray
+        }
+    }
+
+    // Retrieve the subarray using the start and end indices
+    const maxSubarray = nums.slice(maxStart, maxEnd + 1);
+    console.log(`Max Subarray:`, maxSubarray);
+    return maxSum;
+}
+
+let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+console.log(maxSubArray(nums));   
