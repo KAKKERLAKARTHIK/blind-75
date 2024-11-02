@@ -8,7 +8,7 @@
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-let prices = [7,1,5,3,6,4]
+let prices = [7,1,5,3,6,4,7]
 const GetProfit=(prices)=>{
     let minPrice  = Infinity
     let maxPrice = 0
@@ -21,4 +21,16 @@ const GetProfit=(prices)=>{
 
 return maxProfit
 }
-console.log(GetProfit(prices))
+ 
+var containsDuplicate = function(nums =[]) {
+ let uniqSet = new Set()
+    for(let i = 0 ; i < nums.length ; i++){
+         
+        if(uniqSet.has(nums[i])){
+        return true
+        }
+        uniqSet.add(nums[i])
+    }
+    return false
+};
+console.log(containsDuplicate(prices))
