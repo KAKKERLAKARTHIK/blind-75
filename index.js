@@ -195,15 +195,9 @@ function nextGreatestLetter(arr = [2,3,5,8,8, 8,8,8,11], target = 8) {
     
   }
   console.log( peakElement())
-  //// 33 leet code 
-
-/**
- * @param {number[]} arr
- * @param {number} target
- * @return {number}
- */
+ 
 const search = function(arr, target) {
-  // Find the pivot point where the array is rotated
+   
   const pivot = (arr) => {
     let start = 0;
     let end = arr.length - 1;
@@ -226,7 +220,7 @@ const search = function(arr, target) {
     return -1;
   };
 
-  // Standard binary search function
+  
   const binarySearch = (arr, target, start, end) => {
     while (start <= end) {
       let mid = Math.floor((start + end) / 2);
