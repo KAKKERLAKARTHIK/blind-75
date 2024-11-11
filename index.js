@@ -176,7 +176,6 @@ function nextGreatestLetter(arr = [2,3,5,8,8, 8,8,8,11], target = 8) {
    
     
    function peakElement(arr= [0,1,2,3,4,5,4,3,2,1]){
-   debugger
     let start = 0
     let end = arr.length-1
     while(start <= end){
@@ -188,10 +187,7 @@ function nextGreatestLetter(arr = [2,3,5,8,8, 8,8,8,11], target = 8) {
       }else if(arr[mid]<arr[mid+1]){
         start = mid+1
       }
-      else{
-        
-      }
-      
+ 
     }
     
     return start
@@ -199,4 +195,70 @@ function nextGreatestLetter(arr = [2,3,5,8,8, 8,8,8,11], target = 8) {
     
   }
   console.log( peakElement())
+  //// 33 leet code 
+
+/**
+ * @param {number[]} arr
+ * @param {number} target
+ * @return {number}
+ */
+const search = function(arr, target) {
+  // Find the pivot point where the array is rotated
+  const pivot = (arr) => {
+    let start = 0;
+    let end = arr.length - 1;
+
+    while (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      
+      if (mid < end && arr[mid] > arr[mid + 1]) {
+        return mid;
+      }
+      if (mid > start && arr[mid] < arr[mid - 1]) {
+        return mid - 1;
+      }
+      if (arr[mid] < arr[start]) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
+      }
+    }
+    return -1;
+  };
+
+  // Standard binary search function
+  const binarySearch = (arr, target, start, end) => {
+    while (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      if (arr[mid] === target) {
+        return mid;
+      } else if (arr[mid] > target) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
+      }
+    }
+    return -1;
+  };
+
+  
+  let pivi = pivot(arr);
+ 
+  if (pivi === -1) {
+    return binarySearch(arr, target, 0, arr.length - 1);
+  }
+
+  
+  let firstSearch = binarySearch(arr, target, 0, pivi);
+  if (firstSearch !== -1) {
+    return firstSearch;
+  }
+  return binarySearch(arr, target, pivi + 1, arr.length - 1);
+};
+
+ 
+let array= [3, 4, 5, 6, 7, 0, 1, 2];
+let target = 1;
+console.log(search(array, target));  
+
  
