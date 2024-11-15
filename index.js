@@ -70,52 +70,52 @@ function maxSubArray(nums) {
 let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 console.log(maxSubArray(nums));
 
-function nextGreatestLetter(arr = [2, 3, 5, 8, 8, 8, 8, 8, 11], target = 8) {
+// function nextGreatestLetter(arr = [2, 3, 5, 8, 8, 8, 8, 8, 11], target = 8) {
 
-  let ans = [-1, -1]
-  let first = getFirstAndLast(arr, target, true)
-  let second = getFirstAndLast(arr, target)
-  ans[0] = first
-  ans[1] = second
-  function getFirstAndLast(arr, target, firstOccurence = false) {
-    // debugger
-    let ans = -1
-    let start = 0
-    let end = arr.length - 1
+//   let ans = [-1, -1]
+//   let first = getFirstAndLast(arr, target, true)
+//   let second = getFirstAndLast(arr, target)
+//   ans[0] = first
+//   ans[1] = second
+//   function getFirstAndLast(arr, target, firstOccurence = false) {
+//     // debugger
+//     let ans = -1
+//     let start = 0
+//     let end = arr.length - 1
 
-    while (start <= end) {
-      let mid = Math.floor((start + end) / 2)
-      if (target < arr[mid]) {
-        end = mid - 1
-      } else if (target > arr[mid]) {
-        start = mid + 1
-      } else {
-        ans = mid
-        if (firstOccurence) {
-          end = mid - 1
-        } else {
-          start = mid + 1
-        }
-      }
+//     while (start <= end) {
+//       let mid = Math.floor((start + end) / 2)
+//       if (target < arr[mid]) {
+//         end = mid - 1
+//       } else if (target > arr[mid]) {
+//         start = mid + 1
+//       } else {
+//         ans = mid
+//         if (firstOccurence) {
+//           end = mid - 1
+//         } else {
+//           start = mid + 1
+//         }
+//       }
 
-    }
+//     }
 
-    return ans
+//     return ans
 
-  }
+//   }
 
 
-  return ans
-}
-console.log(nextGreatestLetter())
-function nextGreatestLetter(arr = [2, 3, 5, 8, 8, 11], target = 400) {
+//   return ans
+// }
+// console.log(nextGreatestLetter())
+function nextGreatestLetter(arr , target = 400) {
   let start = 0
   let end = 1
   while (target > arr[end]) {
-    if (start < target) {
+    // if (start < target) {
       start = end + 1
       end = end * 2
-    }
+    // }
   }
 
 
@@ -172,7 +172,7 @@ let arr = [
   621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640,
   641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659]
 
-console.log(nextGreatestLetter(arr))
+console.log(nextGreatestLetter(arr),'infinee')
 
 
 function peakElement(arr = [0, 1, 2, 3, 4, 5, 4, 3, 2, 1]) {
@@ -335,3 +335,44 @@ function selectionSort(arr) {
   return arr
 }
 console.log(selectionSort([3, 5, 1, 2, 4]))
+
+
+function nextGreatestLetter1(arr  , target = 1000 ) {
+  let start = 0
+  let end = 1
+  while (  target > arr[end]  ) {
+    
+      // let temp = end +1
+      start = end + 1  
+
+      end = end * 2
+
+      // start = temp
+       
+    
+  }
+
+
+  let ans = getFirstAndLast(arr, target, start, end)
+
+  function getFirstAndLast(arr, target, start, end) {
+ 
+    let ans = -1
+    while (start <= end) {
+      let mid = Math.floor((start + end) / 2)
+     if(arr[mid] === target){
+      return mid 
+     }else if ( arr[mid] > target){
+      end = mid -1
+     }else{
+      start = mid +1
+     }
+    }
+    return ans
+  }
+  return ans
+}
+let arr2 = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+console.log(nextGreatestLetter1(arr ),'infinee')
