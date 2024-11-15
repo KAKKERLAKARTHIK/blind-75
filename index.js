@@ -255,4 +255,56 @@ let array= [3, 4, 5, 6, 7, 0, 1, 2];
 let target = 1;
 console.log(search(array, target));  
 
- 
+ // 2d array 
+ function flattenArray(arr, target) {
+  debugger
+  let rows = arr.length;
+  let cols = arr[0].length;
+  let start = 0;
+  let end = rows * cols - 1;   
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    let row = Math.floor(mid / cols);
+    let col = mid % cols;
+
+    if (arr[row][col] === target) {
+      return [row, col];
+    } else if (arr[row][col] < target) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  
+  return -1;  // Target not found
+}
+
+let arr1 = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+];
+
+console.log(flattenArray(arr1, 10));
+// bubble sorting
+function bubble(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let isSwapped = true
+   for (let j = 1; j < array.length -i; j++) {
+     if(arr[j] < arr[j-1]){
+      isSwapped = false
+      let temp = arr[j-1]
+      arr[j-1] =arr[j]
+      arr[j] = temp
+     }
+    
+   }
+   if(isSwapped){
+    break
+   }
+    
+  }
+  return arr
+}
+console.log(bubble([3,5,1,2,4]))
