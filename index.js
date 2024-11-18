@@ -327,15 +327,15 @@ function selectionSort(arr) {
     }
     return max
   }
-  function swapIndexes(arr,first,last) {
-    let temp = arr[first]
-    arr[first] = arr[last]
-    arr[last] = temp
-  }
+
   return arr
 }
 console.log(selectionSort([3, 5, 1, 2, 4]))
-
+function swapIndexes(arr,first,last) {
+  let temp = arr[first]
+  arr[first] = arr[last]
+  arr[last] = temp
+}
 
 function nextGreatestLetter1(arr  , target = 1000 ) {
   let start = 0
@@ -376,3 +376,28 @@ let arr2 = [
   1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 console.log(nextGreatestLetter1(arr ),'infinee')
+
+// function intirestionSort(arr) {
+//   debugger
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = i+1; j > 0 ; j--) {
+//      if(arr[j] < arr[j-1]){
+//       swapIndexes(arr,j,j-1)
+//      }else{ 
+
+         //break
+// }
+    
+//   }
+  
+// }
+
+// return arr
+
+// }
+// i  is 0
+// then j  is now 1  its check inside arr[j] is 4 arr[j -1 ] is 5 condition checks 
+// if 4 < 5 true its swaap indews [4,5,3,2,1]
+// next same  its check for 3 < 5 and its swap  [4,3,5,2,1]and next its cheks  3 < 4 again its swaps
+//[3,4,5,2,1]it continue to end
+// console.log(intirestionSort([5,4,3,2,1]))
