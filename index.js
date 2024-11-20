@@ -33,7 +33,7 @@ var containsDuplicate = function (nums = []) {
   }
   return false
 };
-console.log(containsDuplicate(prices))
+//console.log(containsDuplicate(prices))
 function maxSubArray(nums) {
   // debugger
   let maxSum = nums[0];
@@ -63,12 +63,12 @@ function maxSubArray(nums) {
 
   // Retrieve the subarray using the start and end indices
   const maxSubarray = nums.slice(maxStart, maxEnd + 1);
-  console.log(`Max Subarray:`, maxSubarray);
+  //console.log(`Max Subarray:`, maxSubarray);
   return maxSum;
 }
 
 let nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-console.log(maxSubArray(nums));
+//console.log(maxSubArray(nums));
 
 // function nextGreatestLetter(arr = [2, 3, 5, 8, 8, 8, 8, 8, 11], target = 8) {
 
@@ -107,7 +107,7 @@ console.log(maxSubArray(nums));
 
 //   return ans
 // }
-// console.log(nextGreatestLetter())
+// //console.log(nextGreatestLetter())
 function nextGreatestLetter(arr , target = 400) {
   let start = 0
   let end = 1
@@ -172,7 +172,7 @@ let arr = [
   621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640,
   641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659]
 
-console.log(nextGreatestLetter(arr),'infinee')
+//console.log(nextGreatestLetter(arr),'infinee')
 
 
 function peakElement(arr = [0, 1, 2, 3, 4, 5, 4, 3, 2, 1]) {
@@ -181,7 +181,7 @@ function peakElement(arr = [0, 1, 2, 3, 4, 5, 4, 3, 2, 1]) {
   while (start <= end) {
 
     let mid = Math.floor((start + end) / 2)
-    console.log(arr[mid], arr[mid + 1])
+    //console.log(arr[mid], arr[mid + 1])
     if (arr[mid] > arr[mid + 1]) {
       end = mid - 1
     } else if (arr[mid] < arr[mid + 1]) {
@@ -194,7 +194,7 @@ function peakElement(arr = [0, 1, 2, 3, 4, 5, 4, 3, 2, 1]) {
 
 
 }
-console.log(peakElement())
+//console.log(peakElement())
 
 const search = function (arr, target) {
 
@@ -253,7 +253,7 @@ const search = function (arr, target) {
 
 let array = [3, 4, 5, 6, 7, 0, 1, 2];
 let target = 1;
-console.log(search(array, target));
+//console.log(search(array, target));
 
 // 2d array 
 function flattenArray(arr, target) {
@@ -286,7 +286,7 @@ let arr1 = [
   [13, 14, 15, 16]
 ];
 
-console.log(flattenArray(arr1, 10));
+//console.log(flattenArray(arr1, 10));
 // bubble sorting
 function bubble(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -307,7 +307,7 @@ function bubble(arr) {
   }
   return arr
 }
-// console.log(bubble([3,5,1,2,4]))
+// //console.log(bubble([3,5,1,2,4]))
 
 
 function selectionSort(arr) {
@@ -330,7 +330,7 @@ function selectionSort(arr) {
 
   return arr
 }
-console.log(selectionSort([3, 5, 1, 2, 4]))
+//console.log(selectionSort([3, 5, 1, 2, 4]))
 function swapIndexes(arr,first,last) {
   let temp = arr[first]
   arr[first] = arr[last]
@@ -375,7 +375,7 @@ function nextGreatestLetter1(arr  , target = 1000 ) {
 let arr2 = [
   1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-console.log(nextGreatestLetter1(arr ),'infinee')
+//console.log(nextGreatestLetter1(arr ),'infinee')
 
 // function intirestionSort(arr) {
 //   debugger
@@ -400,4 +400,137 @@ console.log(nextGreatestLetter1(arr ),'infinee')
 // if 4 < 5 true its swaap indews [4,5,3,2,1]
 // next same  its check for 3 < 5 and its swap  [4,3,5,2,1]and next its cheks  3 < 4 again its swaps
 //[3,4,5,2,1]it continue to end
-// console.log(intirestionSort([5,4,3,2,1]))
+// //console.log(intirestionSort([5,4,3,2,1]))
+
+
+// cyclic sort When they given  range nums from 1 to N then apply cyclic sort there
+function cyclicSort(arr) {
+  debugger
+  let i = 0
+  while (  i < arr.length ) {
+     if(arr[i] !== arr[arr[i]-1]){
+       swapIndex(arr,i,arr[i])
+     }else{
+      i++
+     }
+  }
+   
+   return arr
+  }
+  function swapIndex(arr,current,exact) {
+     let temp = arr[current]
+     arr[current] = arr[exact]
+     arr[exact] = temp
+  }
+  console.log(cyclicSort([4,2,1,0]))
+
+  //missing number
+  function cyclicSort(arr =[3,2,1,5,0]) {
+  
+    let i = 0
+    while(i < arr.length)
+    if(arr[i]< arr.length&&arr[i] !== i){
+      swapIndex(arr,i,arr[i])
+    }else{
+      i++
+    }
+    //console.log(arr)
+    for (let j = 0; j < arr.length; j++) {
+      if(arr[j] !== j){
+        return j
+      }
+    }
+    return arr.length
+  }
+  function swapIndex(arr,current,target) {
+    let temp = arr[current]
+    arr[current] = arr[target]
+    arr[target] = temp
+  }
+  
+var findDuplicate = function(arr) {
+  let i = 0
+  
+  while(i < arr.length){
+ 
+    if(arr[i]!=i+1){
+      if (  arr[i]  !==  arr[arr[i]-1]) {
+
+        swapIndex(arr,i,arr[i]-1)
+      }else{
+        return arr[i]
+      }
+    }else{
+      i++
+    }
+  }
+ 
+}
+function swapIndex(arr,current,target) {
+  let temp = arr[current]
+  arr[current] = arr[target]
+  arr[target] = temp
+}
+console.log(findDuplicate([1,3,4,2,2]))
+// You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number.
+
+// You are given an integer array nums representing the data status of this set after the error.
+
+// Find the number that occurs twice and the number that is missing and return them in the form of an array.
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findErrorNums = function(arr) {
+  let i = 0
+     let dublicate =[]
+  while(i < arr.length){
+   
+      if (  arr[i]  !==  arr[arr[i]-1]) {
+        swapIndex(arr,i,arr[i]-1)
+      } else{
+      i++
+    }
+  }
+
+for(let j = 0 ; j < arr.length ; j++){
+    if(j+1 !== arr[j]){
+        dublicate.push(arr[j],j+1)
+    }
+}
+function swapIndex(arr,current,target) {
+  let temp = arr[current]
+  arr[current] = arr[target]
+  arr[target] = temp
+}
+  return dublicate
+};
+
+//Find all Dublicate
+var findDuplicates = function(arr) {
+  let i = 0
+  let dublicate =[]
+while(i < arr.length){
+
+   if (  arr[i]  !==  arr[arr[i]-1]) {
+     swapIndex(arr,i,arr[i]-1)
+   } else{
+   i++
+ }
+}
+
+for(let j = 0 ; j < arr.length ; j++){
+ if(j+1 !== arr[j]){
+     dublicate.push(arr[j])
+ }
+}
+function swapIndex(arr,current,target) {
+let temp = arr[current]
+arr[current] = arr[target]
+arr[target] = temp
+}
+return dublicate
+};
+
+console.log(findDuplicates([1,1]))
