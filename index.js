@@ -534,3 +534,71 @@ return dublicate
 };
 
 console.log(findDuplicates([1,1]))
+const mergeSortInPlace=(arr,s,e) =>{
+  if (e - s <= 1) return;
+ const mid = Math.floor((s + e) / 2);
+  mergeSortInPlace(arr,s,mid)
+  mergeSortInPlace(arr,mid,e)
+  
+  return merge(arr,s,mid,e)
+}
+const merge =(arr,s,mid,e)=>{
+  let i = s
+  let j = mid
+  let k = 0
+  let mix =[]
+  while(i < mid && j < e){
+    if(arr[i]<arr[j]){
+      mix[k] = arr[i]
+      i++
+    }else{
+      mix[k] = arr[j]
+      j++
+    }
+    k++
+  }
+  while(i<mid){
+    mix[k] = arr[i]
+    i++
+    k++
+  }
+    while(j<e){
+    mix[k] = arr[j]
+    j++
+    k++
+  }
+  for (let l = 0; l < mix.length; l++) {
+    console.log(s+l,s,l)
+    arr[s + l] = mix[l];
+  }
+}
+let arr11 =[5,4,3,2,1]
+
+console.log(mergeSortInPlace(arr11,0,arr11.length))
+console.log(arr11)
+
+var findMin = function(arr) {
+  const pivot = (arr) => {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+
+    if (mid < end && arr[mid] > arr[mid + 1]) {
+      return arr[mid+1];
+    }
+    if (mid > start && arr[mid] < arr[mid - 1]) {
+      return arr[mid];
+    }
+    if (arr[mid] < arr[start]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+  return -1;
+};
+return pivot(arr)
+};
+console.log(findMin([3,4,5,1,2]))
