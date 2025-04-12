@@ -599,6 +599,35 @@ var findMin = function(arr) {
   }
   return -1;
 };
-return pivot(arr)
+let pivi = pivot(arr)
+return pivi !== -1 ? pivi: arr[0]
 };
-console.log(findMin([3,4,5,1,2]))
+function stringManupulation(string,val,add) {
+  if(string === '') {
+    return add
+  }
+  
+  if(string[0] !== val)  {
+    add = add.concat(string[0])
+  }
+ 
+  return  stringManupulation(string.slice(1),val,add)
+}
+let string = 'baccad'
+console.log(stringManupulation(string,'a',''))
+
+function skipApple(string,val,add) {
+  if(string === '') {
+    return ''
+  }
+  
+  if(!string.startsWith('apple') )  {
+     return string[0] + skipApple(string.slice(1));
+  }else{
+        return skipApple(string.slice(5));
+  }
+ 
+ 
+}
+let string2 = 'baccappled'
+console.log(skipApple(string2))
